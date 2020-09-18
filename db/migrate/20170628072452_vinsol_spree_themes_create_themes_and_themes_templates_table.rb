@@ -4,7 +4,6 @@ class VinsolSpreeThemesCreateThemesAndThemesTemplatesTable < ActiveRecord::Migra
     create_table :spree_themes do |t|
       t.string :name
       t.string :state
-      # t.string :template_file
     end
 
     create_table :spree_themes_templates do |t|
