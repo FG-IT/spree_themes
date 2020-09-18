@@ -31,10 +31,11 @@ module VinsolSpreeThemes
         puts 'Loading and applying default spree theme...'
 
         filepath = "#{ ::VinsolSpreeThemes::Engine.root }/lib/generators/themes/default.zip"
-
+        file = File.open(filepath)
+        attachment = {io: file, :filename => 'default.zip', :content_type => file.content_type_parse.first}
         # creating theme object.
         theme = Spree::Theme.new(state: 'drafted', name: 'default')
-        theme.template_file = File.open(filepath)
+        theme.template_file = attachment
         theme.save(validate: false)
 
         # extracting the zip file.
