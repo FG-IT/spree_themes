@@ -9,8 +9,7 @@ module Spree
     CURRENT_THEME_PATH = File.join(THEMES_PATH, 'current')
     ASSET_CACHE_PATH = File.join(Rails.root, 'tmp', 'cache')
 
-    has_one_attached :template_file, storage: :filesystem,
-                                      path: 'public/system/spree/themes/:filename'
+    has_one_attached :template_file
 
     ## VALIDATIONS ##
     validates_attachment :template_file, presence: true,
