@@ -34,3 +34,11 @@ bower.json
 # Ignore pow environment settings
 .powenv
 .DS_Store
+.idea
+/.idea/checkstyle-idea.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/spree_themes.iml
+/.idea/vcs.xml
+/.idea/.gitignore
