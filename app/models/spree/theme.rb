@@ -116,7 +116,7 @@ module Spree
     end
 
     def template_file_path
-      ActiveStorage::Blob.service.send(:path_for, template_file.key)
+      ActiveStorage::Blob.service.send(:path_for, template_file.blob.key)
     end
 
     private
