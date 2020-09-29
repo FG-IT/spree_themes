@@ -118,7 +118,11 @@ module Spree
     end
 
     def tmp_template_file
-      @tmp_template_file ||= Tempfile.open { |tempfile| tempfile << template_file.download }
+      zip_path = "#{Dir.tmpdir}/#{template_file.filename}"
+      File.open(zip_path, 'wb') do |file|
+        file.write(template_file.download)
+      end
+      zip_path
     end
 
     private
