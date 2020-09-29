@@ -115,6 +115,10 @@ module Spree
       FileUtils.remove_dir(ASSET_CACHE_PATH) if File.exists?(ASSET_CACHE_PATH)
     end
 
+    def template_file_path
+      ActiveStorage::Blob.service.send(:path_for, template_file.key)
+    end
+
     private
 
       # def ensure_atleast_one_published_theme
@@ -130,7 +134,7 @@ module Spree
       end
 
       def extract_template_zip_file
-        ZipFileExtractor.new(template_file.path, self).extract
+        ZipFileExtractor.new(template_file_path, self).extract
       end
 
       def delete_from_file_system
