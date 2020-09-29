@@ -116,7 +116,7 @@ module Spree
     end
 
     def tmp_template_file
-      @tmp_template_file ||= ActiveStorage::Downloader.new(template_file).download_blob_to_tempfile
+      @tmp_template_file ||= Tempfile.open { |tempfile| tempfile << template_file.download }
     end
 
     private
