@@ -9,11 +9,7 @@ module Spree
     CURRENT_THEME_PATH = File.join(THEMES_PATH, 'current')
     ASSET_CACHE_PATH = File.join(Rails.root, 'tmp', 'cache')
 
-    has_one_attached :template_file
 
-    ## VALIDATIONS ##
-    validates_each :template_file, presence: true,
-                   content_type: {content_type: TEMPLATE_FILE_CONTENT_TYPE}
     # do_not_validate_attachment_file_type :template_file
 
     validates :name, presence: true,
@@ -32,6 +28,12 @@ module Spree
     after_commit :extract_template_zip_file, on: :create
     # before_destroy :ensure_not_published, prepend: true
     after_destroy :delete_from_file_system
+
+    has_one_attached :template_file
+
+    ## VALIDATIONS ##
+    validates_each :template_file, presence: true,
+                   content_type: {content_type: TEMPLATE_FILE_CONTENT_TYPE}
 
     # FIX_ME_PG:- Need to have default state to compiled when uploading theme. Set state after zip file extraction.
     # after_create :set_state_to_compile
