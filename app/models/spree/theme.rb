@@ -140,7 +140,7 @@ module Spree
     end
 
     def extract_template_zip_file
-      ZipFileExtractor.new(tmp_template_file.path, self).extract
+      ZipFileExtractor.new(tmp_template_file, self).extract
     end
 
     def delete_from_file_system
