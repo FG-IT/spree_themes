@@ -25,11 +25,13 @@ module Spree
     ## CALLBACKS ##
     before_validation :set_name, if: :template_file?
     before_validation :set_state, unless: :state?
+
+
+    has_one_attached :template_file
     after_commit :extract_template_zip_file, on: :create
     # before_destroy :ensure_not_published, prepend: true
     after_destroy :delete_from_file_system
 
-    has_one_attached :template_file
 
     ## VALIDATIONS ##
     validates_each :template_file, presence: true,
