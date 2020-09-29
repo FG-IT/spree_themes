@@ -32,10 +32,10 @@ module VinsolSpreeThemes
 
         filepath = "#{::VinsolSpreeThemes::Engine.root }/lib/generators/themes/default.zip"
         file = File.open(filepath)
-        attachment = {io: file, :filename => 'default.zip'}
+
         # creating theme object.
         theme = Spree::Theme.new(state: 'drafted', name: 'default')
-        theme.template_file.attach(attachment.blob)
+        theme.template_file.attach(io: file, :filename => 'default.zip')
         theme.save(validate: false)
 
         # extracting the zip file.
