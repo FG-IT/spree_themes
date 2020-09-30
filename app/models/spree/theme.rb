@@ -33,8 +33,8 @@ module Spree
 
 
     ## VALIDATIONS ##
-    validates_each :template_file, presence: true,
-                   content_type: {content_type: TEMPLATE_FILE_CONTENT_TYPE}
+    # validates_each :template_file, presence: true,
+    #                content_type: {content_type: TEMPLATE_FILE_CONTENT_TYPE}
 
     # FIX_ME_PG:- Need to have default state to compiled when uploading theme. Set state after zip file extraction.
     # after_create :set_state_to_compile
