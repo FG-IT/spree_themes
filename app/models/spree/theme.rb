@@ -23,9 +23,8 @@ module Spree
     has_many :themes_templates, dependent: :destroy
 
     ## CALLBACKS ##
-    before_validation :set_name, if: :template_file?
+    # before_validation :set_name, if: :template_file?
     before_validation :set_state, unless: :state?
-
 
     has_one_attached :template_file
     # after_commit :extract_template_zip_file, on: :create
