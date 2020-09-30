@@ -28,7 +28,7 @@ module Spree
 
 
     has_one_attached :template_file
-    after_commit :extract_template_zip_file, on: :create
+    # after_commit :extract_template_zip_file, on: :create
     # before_destroy :ensure_not_published, prepend: true
     after_destroy :delete_from_file_system
 
